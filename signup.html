@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>Company 13 | Signup</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="particles-js"></div>
+
+<div class="center-box">
+  <h1>ثبت نام حامی</h1>
+
+  <form onsubmit="submitForm(event)">
+    <label>نام</label>
+    <input type="text" id="fname" required>
+
+    <label>نام خانوادگی</label>
+    <input type="text" id="lname" required>
+
+    <label>شماره تماس</label>
+    <input type="tel" id="phone" required>
+
+    <button type="submit">ثبت نام</button>
+  </form>
+
+  <div class="result" id="result"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+<script>
+particlesJS("particles-js", {
+  "particles":{
+    "number":{"value":70},
+    "color":{"value":"#ffffff"},
+    "shape":{"type":"circle"},
+    "opacity":{"value":0.4},
+    "size":{"value":3,"random":true},
+    "move":{"enable":true,"speed":2}
+  }
+});
+
+function generateCode(){
+  return 'C13-' + Math.random().toString(36).substring(2,8).toUpperCase();
+}
+
+function submitForm(e){
+  e.preventDefault();
+  const code = generateCode();
+  document.getElementById("result").innerText =
+    "🎁 کارت اعتبار شما: " + code;
+  e.target.reset();
+}
+</script>
+
+</body>
+</html>
